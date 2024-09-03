@@ -41,6 +41,22 @@ func Test_ContainsWord(t *testing.T) {
 			},
 			want: true,
 		},
+		{
+			name: "Case * at both end and middle of word and contains word",
+			args: args{
+				Input:    "makan",
+				Contains: "*a*k*",
+			},
+			want: true,
+		},
+		{
+			name: "Case * at both end and middle of word and doesn't contains word",
+			args: args{
+				Input:    "makan",
+				Contains: "*a*mk*",
+			},
+			want: false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
